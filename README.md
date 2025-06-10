@@ -94,9 +94,10 @@ process.on('SIGTERM', () => {
 | `255`     | Exit code out of range           | Typically a wrapped negative exit code      |
 
 ### Recommended Custom Codes (Optional)
-10 - Database Connection Failed
-11 - Configuration Error
-12 - Third-party Service Unavailable
-13 - Invalid User Input
-14 - Authentication Failure
+
+- 10 - Database Connection Failed
+- 11 - Configuration Error
+- 12 - Third-party Service Unavailable
+- 13 - Invalid User Input
+- 14 - Authentication Failure
 
