@@ -55,3 +55,14 @@ process.stdin.on('data', (data) => {
   console.log(`You typed: ${data}`);
 });
 ```
+## What Are SIGINT and SIGTERM?
+
+These are process signals sent to a Node.js application by the operating system (or manually by the user) to control the process lifecycle.
+
+`SIGINT` (Signal Interrupt)
+- Typically sent when you press Ctrl + C in the terminal.
+- Used to gracefully stop a running process.
+
+`SIGTERM` (Signal Terminate)
+- A termination signal that politely asks a process to stop.
+- Sent by system tools (like kill <pid>, Docker, Kubernetes) to stop processes.
