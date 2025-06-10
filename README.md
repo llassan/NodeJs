@@ -77,3 +77,26 @@ process.on('SIGTERM', () => {
   process.exit(0);
 });
 ```
+
+## Node.js Standard Exit Code Guide
+| Exit Code | Meaning                          | When to Use                                 |
+| --------- | -------------------------------- | ------------------------------------------- |
+| `0`       | Success                          | Normal, successful completion               |
+| `1`       | Uncaught Fatal Exception         | Unexpected error, generic failure           |
+| `2`       | Misuse of Shell Builtins         | Incorrect usage of CLI or invalid arguments |
+| `3`-`125` | Custom Application Errors        | App-specific exit codes (e.g. DB failure)   |
+| `126`     | Command invoked cannot execute   | File permission errors                      |
+| `127`     | Command not found                | CLI command or script missing               |
+| `128`     | Invalid Exit Argument            | Improper usage of `process.exit`            |
+| `128 + N` | Fatal Signal (e.g. SIGINT = 2)   | Termination via OS signals                  |
+| `130`     | Script terminated by Ctrl + C    | SIGINT (128 + 2)                            |
+| `137`     | Killed (Out of Memory / SIGKILL) | Common in Docker or memory issues           |
+| `255`     | Exit code out of range           | Typically a wrapped negative exit code      |
+
+### Recommended Custom Codes (Optional)
+10 - Database Connection Failed
+11 - Configuration Error
+12 - Third-party Service Unavailable
+13 - Invalid User Input
+14 - Authentication Failure
+
