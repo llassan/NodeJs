@@ -62,7 +62,18 @@ These are process signals sent to a Node.js application by the operating system 
 `SIGINT` (Signal Interrupt)
 - Typically sent when you press Ctrl + C in the terminal.
 - Used to gracefully stop a running process.
-
+```bash
+process.on('SIGINT', () => {
+  logger.info('Shutting down Detection Middleware...');
+  process.exit(0);
+});
+```
 `SIGTERM` (Signal Terminate)
 - A termination signal that politely asks a process to stop.
 - Sent by system tools (like kill <pid>, Docker, Kubernetes) to stop processes.
+```bash
+process.on('SIGTERM', () => {
+  logger.info('Service terminated.');
+  process.exit(0);
+});
+```
